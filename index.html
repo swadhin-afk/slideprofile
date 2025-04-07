@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> slide Profiles</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/flowbite@1.6.5/dist/flowbite.min.js"></script>
+</head>
+<body class="bg-[#fffaf5]">
+
+  <!-- Carousel Section -->
+  <section class="w-full">
+    <div id="hero-carousel" class="relative w-full" data-carousel="slide">
+      <div class="relative h-72 overflow-hidden rounded-lg md:h-96">
+
+        <!-- Slide 1 -->
+        <div class="absolute duration-700 ease-in-out inset-0 z-0" data-carousel-item="active">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1470&q=80"
+               class="block w-full h-full object-cover" alt="Couple" />
+          <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+            <div class="text-center text-white">
+              <h2 class="text-3xl md:text-4xl font-bold">welcome to my  Profiles</h2>
+              <p class="mt-2 text-lg">Curated with care to spark meaningful connections   </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="absolute duration-700 ease-in-out inset-0 z-0 hidden" data-carousel-item>
+            <div class="flex flex-col md:flex-row items-center justify-center w-full h-full bg-[#fef8f4] p-6 gap-6">
+              <img src="https://i.pravatar.cc/150?img=47" class="w-32 h-32 rounded-full" />
+              <div class="text-center md:text-left">
+                <h2 class="text-2xl font-bold"> dass celebrities.</h2>
+                <p class="text-gray-700 mt-1"> i am acctress  i am a phtootgrapher  i am a dancer </p>
+              </div>
+            </div>
+          </div>
+
+        <!-- Slide 3 -->
+        <div class="absolute duration-700 ease-in-out inset-0 z-0 hidden" data-carousel-item>
+          <div class="flex flex-col md:flex-row items-center justify-center w-full h-full bg-[#fef8f4] p-6 gap-6">
+            <img src="https://i.pravatar.cc/150?img=47" class="w-32 h-32 rounded-full" />
+            <div class="text-center md:text-left">
+              <h2 class="text-2xl font-bold"> sneha</h2>
+              <p class="text-gray-700 mt-1">i am developer  , i am designer .</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Controls -->
+      <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group" data-carousel-prev>
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/50 hover:bg-white group-hover:ring-2 group-hover:ring-white">
+          <svg class="w-5 h-5 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </span>
+      </button>
+      <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group" data-carousel-next>
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/50 hover:bg-white group-hover:ring-2 group-hover:ring-white">
+          <svg class="w-5 h-5 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Featured Profiles -->
+  <section class="py-10 px-4 md:px-16 bg-[#fffaf5]">
+    <h2 class="text-3xl font-semibold text-center mb-8">Featured Profiles</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="profileCards"></div>
+  </section>
+
+  <!-- Modal -->
+  <div id="profileModal" tabindex="-1" class="hidden fixed top-0 left-0 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto inset-0 h-[calc(100%-1rem)] max-h-full bg-black bg-opacity-50 flex justify-center items-center">
+    <div class="relative bg-white rounded-lg shadow w-full max-w-md p-6">
+      <button type="button" class="absolute top-2 right-2 text-gray-400 hover:text-gray-900" onclick="toggleModal()">
+        ✕
+      </button>
+      <div id="modalContent" class="text-center"></div>
+    </div>
+  </div>
+
+  <script>
+    const profiles = [
+      {
+        name: "Ritika",
+        age: 34,
+        tagline: "Warm, thoughtful and loves poetry",
+        location: "Vishakhapatnam, Andhra Pradesh",
+        avatar: "https://i.pravatar.cc/150?img=47",
+        description: "A grounded and creative soul, Ritika enjoys calm evenings, soulful music and meaningful conversations.",
+        hobbies: [
+          { title: "Poetry", description: "Writes and recites Hindi and Urdu verses during open mic nights" },
+          { title: "Badminton", description: "Plays recreationally with friends every weekend" },
+          { title: "Spirituality", description: "Practices meditation and reads spiritual literature regularly" },
+          { title: "Long Walks", description: "Enjoys early morning walks in city parks" }
+        ]
+      },
+      {
+        name: "Sneha",
+        age: 31,
+        tagline: "Spiritual, grounded and ready for her next chapter",
+        location: "Mumbai, Maharashtra",
+        avatar: "https://i.pravatar.cc/150?img=48",
+        description: "Sneha is rooted in values, loves connecting with people and believes in lifelong learning.",
+        hobbies: [
+          { title: "Volunteering", description: "Active in local community kitchens and NGO events" },
+          { title: "Classical Music", description: "Learns Hindustani vocals from a private tutor" },
+          { title: "Reading", description: "Avid reader of spiritual biographies and memoirs" }
+        ]
+      },
+      {
+        name: "Pavithra",
+        age: 35,
+        tagline: "Loves long walks, strategy games and filter coffee",
+        location: "Bangalore, Karnataka",
+        avatar: "https://i.pravatar.cc/150?img=49",
+        description: "An introverted extrovert who enjoys deep conversations, nature and slow living.",
+        hobbies: [
+          { title: "Road Trips", description: "Often escapes on spontaneous weekend drives to the hills" },
+          { title: "Filter Coffee", description: "A self-proclaimed connoisseur who brews her own every morning" },
+          { title: "Board Games", description: "Hosts monthly strategy game nights with close friends" }
+        ]
+      }
+    ];
+
+    const container = document.getElementById("profileCards");
+    const modal = document.getElementById("profileModal");
+    const modalContent = document.getElementById("modalContent");
+
+    function toggleModal() {
+      modal.classList.toggle("hidden");
+    }
+
+    profiles.forEach((profile, index) => {
+      const card = document.createElement("div");
+      card.className = "bg-white p-6 rounded-lg shadow hover:shadow-md transition cursor-pointer";
+      card.onclick = () => {
+        modalContent.innerHTML = `
+          <img src="${profile.avatar}" class="mx-auto w-28 h-28 rounded-full mb-4" />
+          <h3 class="text-xl font-semibold">${profile.name}, ${profile.age}</h3>
+          <p class="text-gray-600 mb-2">${profile.location}</p>
+          <p class="text-sm mb-4">${profile.description}</p>
+          <h4 class="font-semibold mb-1">Hobbies</h4>
+          <ul class="text-left text-sm text-gray-700 space-y-1">
+            ${profile.hobbies.map(h => `<li><strong>${h.title}:</strong> ${h.description}</li>`).join('')}
+          </ul>`;
+        toggleModal();
+      };
+      card.innerHTML = `
+        <img src="${profile.avatar}" class="w-20 h-20 rounded-full mx-auto mb-4" />
+        <h3 class="text-lg font-bold text-center">${profile.name}</h3>
+        <p class="text-center text-gray-600">${profile.age} • ${profile.tagline}</p>
+        <p class="mt-2 text-sm text-center text-gray-500">${profile.location}</p>`;
+      container.appendChild(card);
+    });
+
+    // Auto-rotate carousel every 4s
+    document.addEventListener("DOMContentLoaded", () => {
+      const carousel = document.querySelector('[data-carousel="slide"]');
+      const nextButton = carousel.querySelector('[data-carousel-next]');
+      setInterval(() => nextButton.click(), 4000);
+    });
+  </script>
+</body>
+</html>
